@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASIM PHOTO STUDIO | PAKPORTAL</title>
+    <meta name="description" content="Premium Photography Services and Digital Toolbox">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&family=Outfit:wght@300;400;600;800&family=Poppins:wght@400;600;800&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ASIM STUDIO MASTER NAV -->
+    <nav class="s-master-nav">
+        <div class="s-nav-container">
+            <div class="s-brand">
+                <div class="s-logo-text">
+                    <span class="en-brand">ASIM PHOTO STUDIO</span>
+                    <span class="urdu-text">عاصم فوٹو سٹوڈیو</span>
+                </div>
+            </div>
+
+            <button class="s-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="s-nav-links" id="navLinks">
+                <button onclick="showTab('home')" class="s-nav-item active" id="nav-home">Home</button>
+                <button onclick="showTab('gallery')" class="s-nav-item" id="nav-gallery">Gallery</button>
+                <button onclick="showTab('services')" class="s-nav-item" id="nav-services">Services</button>
+                <button onclick="showTab('reviews')" class="s-nav-item" id="nav-reviews">Reviews</button>
+                <button onclick="showTab('portal')" class="s-nav-item s-portal-btn" id="nav-portal">PakPortal</button>
+                <button onclick="showTab('admin')" class="s-nav-item" id="nav-admin" style="opacity: 0.3;">Admin</button>
+            </div>
+
+            <!-- GADGETS NOW INSIDE HEADER -->
+            <div class="header-gadgets">
+                <div class="header-gadget-box flux-box-anim header-small-gadget">
+                    <div class="st-clock" style="font-size: 0.95rem; font-weight: 800; color: #fff; margin: 0; line-height: 1.1;">00:00:00 AM</div>
+                    <div class="st-date" style="font-size: 0.7rem; color: #fff; font-weight: 700; margin: 0; opacity: 0.9;">Loading...</div>
+                </div>
+                <div class="header-gadget-box flux-box-anim header-small-gadget" style="cursor: pointer;" onclick="toggleWeatherSearch()">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1px; margin: 0;">
+                        <div style="display: flex; align-items: center; gap: 4px; margin: 0;">
+                            <span class="st-icon" style="font-size: 1rem; margin: 0;">🌦️</span>
+                            <span class="st-temp" style="font-weight: 900; color: #fff; font-size: 0.95rem; margin: 0;">--°C</span>
+                        </div>
+                        <span class="st-city" style="display:inline-block; font-size: 0.7rem; font-weight: 700; color: #fff; margin: 0; opacity: 0.9;">Lahore</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- TAB: HOME (ASIM STUDIO) -->
+    <div id="tab-home" class="s-tab-content">
+        <section class="s-hero">
+            <div id="hero-slider" class="s-hero-slider">
+                <div class="s-slide active" data-text-theme="dark" style="background-image: url('assets/special 1.webp')" onclick="openLightbox('assets/special 1.webp')"></div>
+                <div class="s-slide" data-text-theme="light" style="background-image: url('assets/special 2.webp')" onclick="openLightbox('assets/special 2.webp')"></div>
+                <div class="s-slide" data-text-theme="dark" style="background-image: url('assets/special 3.webp')" onclick="openLightbox('assets/special 3.webp')"></div>
+                <div class="s-slide" data-text-theme="dark" style="background-image: url('assets/special 4.webp')" onclick="openLightbox('assets/special 4.webp')"></div>
+                <div class="s-slide" data-text-theme="light" style="background-image: url('assets/special 5.webp')" onclick="openLightbox('assets/special 5.webp')"></div>
+                <div class="s-slide" data-text-theme="dark" style="background-image: url('assets/special 6.webp')" onclick="openLightbox('assets/special 6.webp')"></div>
+                <div class="s-slide" data-text-theme="light" style="background-image: url('assets/special 7.webp')" onclick="openLightbox('assets/special 7.webp')"></div>
+                <div class="s-slide" data-text-theme="dark" style="background-image: url('assets/special 8.webp')" onclick="openLightbox('assets/special 8.webp')"></div>
+                <div class="s-slide" data-text-theme="dark" style="background-image: url('assets/pic2.webp')" onclick="openLightbox('assets/pic2.webp')"></div>
+                <div class="s-slide" data-text-theme="dark" style="background-image: url('assets/pic3.webp')" onclick="openLightbox('assets/pic3.webp')"></div>
+                <div class="s-slide" data-text-theme="dark" style="background-image: url('assets/pic4.webp')" onclick="openLightbox('assets/pic4.webp')"></div>
+                <div class="s-slide" data-text-theme="dark" style="background-image: url('assets/10eb3755-c83e-47ef-96bc-247676d1f0d9.webp')" onclick="openLightbox('assets/10eb3755-c83e-47ef-96bc-247676d1f0d9.webp')"></div>
+                <div class="s-slide" data-text-theme="dark" style="background-image: url('assets/9a57ea76-d7c4-4e2d-991a-8f69c3c3f641.webp')" onclick="openLightbox('assets/9a57ea76-d7c4-4e2d-991a-8f69c3c3f641.webp')"></div>
+                <div class="s-slide" data-text-theme="dark" style="background-image: url('assets/9faf7da7-f84b-485f-8175-a28226556b40.webp')" onclick="openLightbox('assets/9faf7da7-f84b-485f-8175-a28226556b40.webp')"></div>
+                <div class="s-slide" data-text-theme="light" style="background-image: url('assets/DSC_2777.webp')" onclick="openLightbox('assets/DSC_2777.webp')"></div>
+            </div>
+            <div id="s-hero-content" class="s-hero-content" style="padding: 40px;">
+                <h1 class="s-main-title">ASIM PHOTO STUDIO</h1>
+                <h2 class="s-urdu-title">عاصم فوٹو سٹوڈیو</h2>
+                <div class="s-hero-divider"></div>
+                <p class="s-hero-desc" style="font-size: 1.8rem !important; font-weight: 900;">آپ کے علاقے کریم پارک لاہور میں بہترین فوٹو گرافی اور معیاری سروس کے لیے رابطہ کریں</p>
+                <p class="s-hero-desc" style="margin-top: 5px; font-weight: 1000; font-size: 1.8rem !important;">لاہور میں پروفیشنل فوٹوگرافی اور ویڈیوگرافی کے لیے آپ کا بھروسہ مند مرکز</p>
+            </div>
+        </section>
+
+        <!-- Special Gallery Preview (Home Collection) - SYNCED -->
+        <section class="s-section">
+            <h2 class="s-section-title">SPECIAL COLLECTION / <span class="urdu-inline">سپیشل کلیکشن</span></h2>
+            <div class="s-gallery-grid">
+                <div class="s-gallery-item" onclick="openLightbox('assets/special 1.webp')"><img src="assets/special 1.webp" alt="Special 1"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/special 2.webp')"><img src="assets/special 2.webp" alt="Special 2"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/special 3.webp')"><img src="assets/special 3.webp" alt="Special 3"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/special 4.webp')"><img src="assets/special 4.webp" alt="Special 4"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/special 5.webp')"><img src="assets/special 5.webp" alt="Special 5"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/special 6.webp')"><img src="assets/special 6.webp" alt="Special 6"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/special 7.webp')"><img src="assets/special 7.webp" alt="Special 7"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/special 8.webp')"><img src="assets/special 8.webp" alt="Special 8"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/pic2.webp')"><img src="assets/pic2.webp" alt="Pic 2"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/pic3.webp')"><img src="assets/pic3.webp" alt="Pic 3"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/pic4.webp')"><img src="assets/pic4.webp" alt="Pic 4"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/10eb3755-c83e-47ef-96bc-247676d1f0d9.webp')"><img src="assets/10eb3755-c83e-47ef-96bc-247676d1f0d9.webp" alt="Gemini 1"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/9a57ea76-d7c4-4e2d-991a-8f69c3c3f641.webp')"><img src="assets/9a57ea76-d7c4-4e2d-991a-8f69c3c3f641.webp" alt="Gemini 2"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/9faf7da7-f84b-485f-8175-a28226556b40.webp')"><img src="assets/9faf7da7-f84b-485f-8175-a28226556b40.webp" alt="Gemini 3"></div>
+                <div class="s-gallery-item" onclick="openLightbox('assets/DSC_2777.webp')"><img src="assets/DSC_2777.webp" alt="Special 9"></div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button onclick="showTab('gallery')" class="s-cta-btn">EXPLORE FULL PORTFOLIO</button>
+            </div>
+        </section>
+        <!-- Location Map (Asim Photo Studio Specific) -->
+        <section id="s-location-map" class="s-section" style="text-align: center; padding-top: 20px; padding-bottom: 40px;">
+            <h2 class="s-section-title">LOCATION / <span class="urdu-inline">لوکیشن</span></h2>
+            <div class="s-map-container" style="max-width: 800px; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 2px solid var(--accent-gold);">
+                <!-- Updated query to focus explicitly on Asim Photo Studio -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2615.288935244915!2d74.299286!3d31.591439100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191c8fe509266f%3A0x519e68f593e35af0!2sAsim%20Photo%20Studio!5e0!3m2!1sen!2skw!4v1775153255146!5m2!1sen!2skw" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB: GALLERY (Full Portfolio) -->
+    <div id="tab-gallery" class="s-tab-content" style="display:none;">
+        <section class="s-section">
+            <h1 class="s-section-title">OUR PORTFOLIO / <span class="urdu-inline">ہمارا کام</span></h1>
+            <div class="s-gallery-grid full-gallery portfolio-grid">
+                <!-- Syncing valid images from disk -->
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_2777.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_3165.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_8680.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_8935.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_2790.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_0146.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_0047.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_0061 copy.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_0143 copy.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/special 1.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/special 2.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/pic2.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/pic3.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/pic4.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_0143 copy.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_0061 copy.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/DSC_0047.webp" alt="Portfolio"></div>
+                <!-- Promotional & Gemini Results -->
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/53790536_1957820854328066_6480714043135885312_o.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/9a57ea76-d7c4-4e2d-991a-8f69c3c3f641.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/9faf7da7-f84b-485f-8175-a28226556b40.webp" alt="Portfolio"></div>
+                <div class="s-gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="assets/10eb3755-c83e-47ef-96bc-247676d1f0d9.webp" alt="Portfolio"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB: SERVICES (Standalone view, but also shown on Home) -->
+    <div id="tab-services" class="s-tab-content" style="display:none;">
+        <div id="services-section-container">
+            <section class="s-section">
+                <h1 class="s-section-title">SERVICES / <span class="urdu-inline">سروسز</span></h1>
+                <div class="s-services-grid">
+                    <div class="s-service-card">
+                        <div class="s-icon">📷</div>
+                        <h3>Studio Photography</h3>
+                        <p class="urdu-text">سٹوڈیو فوٹوگرافی</p>
+                    </div>
+                    <div class="s-service-card">
+                        <div class="s-icon">💍</div>
+                        <h3>Wedding Coverage</h3>
+                        <p class="urdu-text">شادی بیاہ کی بہترین کوریج</p>
+                    </div>
+                    <div class="s-service-card">
+                        <div class="s-icon">🎂</div>
+                        <h3>Birthdays</h3>
+                        <p class="urdu-text">سالگرہ کی تقریبات</p>
+                    </div>
+                    <div class="s-service-card">
+                        <div class="s-icon">👨‍👩‍👧‍👦</div>
+                        <h3>Family Events</h3>
+                        <p class="urdu-text">فیملی کی تقریبات</p>
+                    </div>
+                    <div class="s-service-card">
+                        <div class="s-icon">🌙</div>
+                        <h3>Eid Specials</h3>
+                        <p class="urdu-text">عید اور دوسرے موقعوں پر سپیشل فوٹوگرافی</p>
+                    </div>
+                    <div class="s-service-card">
+                        <div class="s-icon">🪪</div>
+                        <h3>Passport Photos</h3>
+                        <p class="urdu-text">پاسپورٹ سائز تصویریں</p>
+                    </div>
+                    <div class="s-service-card">
+                        <div class="s-icon">🎥</div>
+                        <h3>Video Shooting</h3>
+                        <p class="urdu-text">پروفیشنل ویڈیو شوٹنگ اور کوریج</p>
+                    </div>
+                    <div class="s-service-card">
+                        <div class="s-icon">🖨️</div>
+                        <h3>Document Printing</h3>
+                        <p class="urdu-text">ہر قسم کے دستاویزات کی کلر اور بلیک اینڈ وائٹ پرنٹنگ (Urdu/English)</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- TAB: REVIEWS (Standalone view, but also shown on Home) -->
+    <div id="tab-reviews" class="s-tab-content" style="display:none;">
+        <div id="reviews-section-container">
+            <section class="s-section">
+                <h2 class="s-section-title">REVIEWS / <span class="urdu-inline">ریویوز</span></h2>
+                
+                <div class="s-review-form card">
+                    <h3>Leave a Review</h3>
+                    <div class="s-form-group">
+                        <input type="text" id="revName" placeholder="Your Name">
+                    </div>
+                    <div class="s-form-group">
+                        <div id="star-rating">
+                            <span onclick="setRating(1)">★</span><span onclick="setRating(2)">★</span><span onclick="setRating(3)">★</span><span onclick="setRating(4)">★</span><span onclick="setRating(5)" class="active">★</span>
+                        </div>
+                        <input type="hidden" id="revRating" value="5">
+                    </div>
+                    <div class="s-form-group">
+                        <textarea id="revMessage" placeholder="Your experience... (Urdu/English supported)" class="urdu-text"></textarea>
+                    </div>
+                    <button onclick="submitReview()" class="s-cta-btn">Submit Review</button>
+                </div>
+
+                <div class="s-marquee-container">
+                    <div id="reviews-list" class="s-marquee-content">
+                        <!-- Reviews will load here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- TAB: ADMIN -->
+    <div id="tab-admin" class="s-tab-content" style="display:none;">
+        <section class="s-section">
+            <h1 class="s-section-title">Admin Control Panel</h1>
+            <div class="card" style="max-width: 400px; margin: 0 auto; padding: 30px;">
+                <div id="admin-login">
+                    <input type="password" id="adminPass" placeholder="Enter Password" style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ccc;">
+                    <button onclick="verifyAdmin()" class="s-cta-btn" style="width: 100%;">Login</button>
+                </div>
+                <div id="admin-panel" style="display:none;">
+                    <h3>Manage Reviews</h3>
+                    <div id="admin-reviews-list"></div>
+                    <button onclick="logoutAdmin()" class="s-cta-btn secondary" style="width: 100%; margin-top: 20px;">Logout</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB: PAKPORTAL (THE ORIGINAL CONTENT) -->
+    <div id="tab-portal" class="s-tab-content" style="display:none;">
+        <!-- [ORIGINAL BACKUP CONTENT BEGINS HERE] -->
+        <header>
+            <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0 4%;">
+                <!-- Left Side: Logo + Tiny Nav -->
+                <div style="display: flex; align-items: center; gap: 30px;">
+                    <div class="logo">PakPortal</div>
+                    <ul style="display: flex; gap: 15px; margin: 0; padding: 0; list-style: none;">
+                        <li><a href="#converters" style="font-size: 0.85rem; opacity: 0.9;">Converters</a></li>
+                        <li><a href="#dashboard" style="font-size: 0.85rem; opacity: 0.9;">Services</a></li>
+                        <li><a href="javascript:void(0)" onclick="showTab('home')" style="font-size: 0.85rem; background: var(--accent-gold); color: #fff; padding: 4px 10px; border-radius: 5px; font-weight: 800;">← Back to Studio</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Right Side: Embossed Gadgets -->
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <!-- Integrated Clock -->
+                    <div class="header-gadget-box flux-box-anim header-small-gadget" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;">
+                        <div class="st-clock monospaced-clock" style="font-size: 0.95rem; font-weight: 800; color: #fff; margin: 0; line-height: 1.1;">00:00:00 AM</div>
+                        <div class="st-date" style="font-size: 0.7rem; font-weight: 700; color: #fff; text-transform: uppercase; margin: 0; opacity: 0.9;">--</div>
+                    </div>
+    
+                    <!-- Integrated Weather -->
+                    <div style="position: relative;">
+                        <div class="header-gadget-box flux-box-anim header-small-gadget" style="cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;" onclick="toggleWeatherSearch()">
+                            <div style="display: flex; align-items: center; gap: 5px; margin: 0;">
+                                <span class="st-icon" style="font-size: 1.1rem; margin: 0;">🌦️</span>
+                                <span class="st-temp weather-temp-bold" style="font-size: 0.95rem; color: #fff; font-weight: 900; margin: 0;">--°C</span>
+                            </div>
+                            <span class="st-city" style="font-size: 0.7rem; font-weight: 700; opacity: 0.9; text-transform: uppercase; color: #fff; margin: 0;">Lahore</span>
+                        </div>
+                        <!-- Global Search Dropdown -->
+                        <div id="weather-search-dropdown" class="search-dropdown" style="display: none;">
+                            <input type="text" id="city-autocomplete" placeholder="Global City Search..." autocomplete="off">
+                            <div id="search-results"></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    
+        <main>
+            <section class="hero">
+                <h1 class="glow-text">
+                    Your Premium Digital Toolbox
+                </h1>
+                <p class="urdu-text">پاکستان کا جدید اور خوبصورت ڈیجیٹل ڈیش بورڈ</p>
+            </section>
+    
+            <section id="converters" class="section">
+                <h2 class="section-title">File Converters <span class="urdu-inline">(کنورٹرز)</span></h2>
+                <div class="grid">
+                    <!-- 1. JPG to PDF -->
+                    <div class="card converter-card">
+                        <div class="icon">📄</div>
+                        <label>JPG to PDF</label>
+                        <div class="settings-panel">
+                            <div class="settings-row"><span>Quality</span><span id="jpgQualVal">80%</span></div>
+                            <input type="range" id="jpgQuality" min="10" max="100" value="80" oninput="document.getElementById('jpgQualVal').innerText=this.value+'%'">
+                        </div>
+                        <input type="file" id="jpgInput" accept="image/jpeg, image/jpg" hidden>
+                        <button onclick="document.getElementById('jpgInput').click()">Choose Image</button>
+                        <div id="jpgStatus" class="status"></div>
+                    </div>
+    
+                    <!-- 2. Word to PDF (NEW/FIXED) -->
+                    <div class="card converter-card">
+                        <div class="icon">📝</div>
+                        <label>Word to PDF</label>
+                        <div class="settings-panel">
+                            <div class="settings-row"><span>Ready to Convert</span></div>
+                            <p style="font-size: 0.7rem; opacity: 0.7;">Premium Quality .docx to PDF</p>
+                        </div>
+                        <input type="file" id="wordInput" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+                        <button onclick="document.getElementById('wordInput').click()">Choose Word</button>
+                        <div id="wordStatus" class="status"></div>
+                    </div>
+    
+                    <!-- 4. PNG to JPG -->
+                    <div class="card converter-card">
+                        <div class="icon">🖼️</div>
+                        <label>PNG to JPG</label>
+                        <div class="settings-panel">
+                            <div class="settings-row"><span>Format</span><span>High Quality</span></div>
+                            <p style="font-size: 0.7rem; opacity: 0.7;">Convert PNG to Optimized JPG</p>
+                        </div>
+                        <input type="file" id="pngInput" accept="image/png" hidden>
+                        <button onclick="document.getElementById('pngInput').click()">Upload PNG</button>
+                        <div id="pngStatus" class="status"></div>
+                    </div>
+    
+                    <!-- 5. Photo Resize -->
+                    <div class="card converter-card">
+                        <div class="icon">📐</div>
+                        <label>Photo Resize</label>
+                        <div class="settings-panel">
+                            <div class="settings-row"><span>Width</span><span id="resizWVal">1000px</span></div>
+                            <input type="range" id="resizeWidth" min="200" max="3000" step="100" value="1000" oninput="document.getElementById('resizWVal').innerText=this.value+'px'">
+                        </div>
+                        <input type="file" id="resizeInput" accept="image/*" hidden>
+                        <button onclick="document.getElementById('resizeInput').click()">Choose Photo</button>
+                        <div id="resizeStatus" class="status"></div>
+                    </div>
+    
+                    <!-- 6. QR Generator -->
+                    <div class="card converter-card">
+                        <div class="icon">🏁</div>
+                        <label>QR Generator</label>
+                        <div class="settings-panel">
+                            <div class="settings-row"><span>Link/Text</span></div>
+                            <input type="text" id="qrText" placeholder="Enter link here" style="width: 100%; border-radius: 6px; padding: 5px;">
+                        </div>
+                        <button onclick="generateQR()">Generate QR</button>
+                        <div id="qrStatus" class="status"></div>
+                    </div>
+    
+                    <!-- 10. Merge PDFs (REPLACED RESIZE) -->
+                    <div class="card converter-card">
+                        <div class="icon">📑</div>
+                        <label>Merge PDFs</label>
+                        <div class="settings-panel" style="margin-bottom: 5px;">
+                            <div class="settings-row"><span>Combine Files</span></div>
+                            <p style="font-size: 0.7rem; opacity: 0.7;">Select multiple PDFs</p>
+                        </div>
+                        <input type="file" id="pdfMergeInput" accept=".pdf" multiple hidden>
+                        <button onclick="document.getElementById('pdfMergeInput').click()" style="background: var(--accent-gold); color: #fff;">Select PDFs</button>
+                        <div id="pdfMergeStatus" class="status"></div>
+                    </div>
+    
+                    <!-- 7. Units & Measures (NEW) -->
+                    <div class="card converter-card">
+                        <div class="icon">📐</div>
+                        <label>Unit Converter</label>
+                        <div class="settings-panel">
+                            <div class="settings-row">
+                                <input type="number" id="unitVal" value="1" style="width: 50px;">
+                                <select id="unitType" style="width: 80px;">
+                                    <option value="ft2m">Feet to Meter</option>
+                                    <option value="m2ft">Meter to Feet</option>
+                                    <option value="kg2lb">KG to Lbs</option>
+                                    <option value="lb2kg">Lbs to KG</option>
+                                </select>
+                            </div>
+                            <div id="unitResult" style="font-weight: 700; margin-top:10px;">---</div>
+                        </div>
+                        <button onclick="convertUnit()">Convert Now</button>
+                        <div id="unitStatus" class="status"></div>
+                    </div>
+    
+                    <!-- 8. Global Exchange -->
+                    <div class="card converter-card">
+                        <div class="icon">🏦</div>
+                        <label>Global Exchange</label>
+                        <div style="font-size: 0.65rem; color: #ffeb3b; text-align: center; margin-bottom: 5px; opacity: 0.9;">(Global Interbank Rates)</div>
+                        <div class="settings-panel">
+                            <div class="settings-row" style="gap: 5px; justify-content: center;">
+                                <input type="number" id="currAmount" value="1" style="width: 50px;">
+                                <select id="currFrom" style="width: 70px;">
+                                    <option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option>
+                                    <option value="PKR">PKR</option><option value="INR">INR</option><option value="AED">AED</option>
+                                    <option value="SAR">SAR</option><option value="KWD">KWD</option><option value="CNY">CNY</option>
+                                    <option value="JPY">JPY</option>
+                                </select>
+                                <span style="font-weight: 800; font-size: 0.8rem;">To</span>
+                                <select id="currTo" style="width: 70px;">
+                                    <option value="PKR">PKR</option><option value="INR">INR</option><option value="USD">USD</option>
+                                    <option value="EUR">EUR</option><option value="GBP">GBP</option><option value="AED">AED</option>
+                                    <option value="SAR">SAR</option><option value="KWD">KWD</option><option value="CNY">CNY</option>
+                                    <option value="JPY">JPY</option>
+                                </select>
+                            </div>
+                            <div id="currResult" style="font-weight: bold; margin-top: 10px;">---</div>
+                        </div>
+                        <button onclick="convertCurrency()">Refresh Rate</button>
+                        <div id="currStatus" class="status"></div>
+                    </div>
+    
+                    <!-- 9. YouTube Downloader (RENAMED) -->
+                    <div class="card converter-card">
+                        <div class="icon">📥</div>
+                        <label>YouTube Downloader</label>
+                        <div class="settings-panel">
+                            <div class="settings-row"><span>Fast Links Generator</span></div>
+                            <input type="text" id="ytLink" placeholder="YouTube URL" style="width: 100%; border-radius: 6px; padding: 5px;">
+                        </div>
+                        <button onclick="loadYTVideo()">Get Download Links</button>
+                        <div id="ytStatus" class="status"></div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Compact YouTube Downloader Box (RENAMED) -->
+            <section id="cinema" class="section" style="display: none; background: var(--card-bg); backdrop-filter: blur(20px); border-radius: 24px; padding: 30px; margin: 30px auto; max-width: 500px; border: var(--glass-border); box-shadow: var(--shadow);">
+                <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: 20px;">Download Options <span class="urdu-inline">(ڈاؤن لوڈ)</span></h2>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <a id="watchOnYT" href="#" target="_blank" class="download-btn" style="width: 100%; height: 55px; font-size: 1.1rem;">🚀 Watch on YouTube</a>
+                    <a id="ytDownloadLink" href="#" target="_blank" class="download-btn" style="width: 100%; height: 55px; font-size: 1.1rem;">📥 Download Video</a>
+                    <button onclick="closeCinema()" style="background: transparent; color: var(--text-brown); box-shadow: none; height: auto; text-decoration: underline; margin-top: 10px; font-weight: 600;">Close This Box</button>
+                </div>
+            </section>
+    
+            <!-- Smart Utilities / Premium Gadgets Section (NEW) -->
+            <section id="smart-utilities" class="section">
+                <h2 class="section-title">Smart Utilities <span class="urdu-inline">(سمارٹ یوٹیلیٹیز)</span></h2>
+                <div class="gadget-grid">
+                    <!-- 2. Global Prayer Times -->
+                    <div class="card gadget-card" style="display: flex; flex-direction: column; overflow: hidden; width: 100%;">
+                        <div class="icon">🕋</div>
+                        <label>Global Prayer Times</label>
+                        <div style="width: 100%; margin-bottom: 12px; position: relative;">
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <input type="text" id="prayerCitySearch" placeholder="Type city (e.g. Mumbai)" class="flux-box-anim" 
+                                    oninput="searchPrayerCities(this.value)"
+                                    onkeypress="if(event.key === 'Enter') updatePrayerTimes(this.value, false)" 
+                                    style="flex: 1; padding: 10px; border-radius: 12px; border: 1px solid rgba(166,124,82,0.2); outline: none; background: rgba(255,255,255,0.6); color: var(--text-brown); font-size: 0.95rem; font-family: 'Poppins', sans-serif; min-width: 180px;">
+                                <button onclick="updatePrayerTimes(document.getElementById('prayerCitySearch').value, false)" style="background: var(--accent-gold); color: white; border: none; border-radius: 12px; padding: 0 15px; font-weight: bold; cursor: pointer; flex-shrink: 0;">🔍</button>
+                            </div>
+                            <!-- Suggestions Dropdown (NEW) -->
+                            <div id="prayer-search-results" style="position: absolute; top: 100%; left: 0; right: 0; background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 100; max-height: 200px; overflow-y: auto; display: none; margin-top: 5px; border: 1px solid rgba(166,124,82,0.1);"></div>
+                        </div>
+    
+                        <div style="background: var(--card-bg); border-radius: 16px; padding: 15px; border: var(--glass-border); flex-grow: 1;">
+                            <div style="text-align: center; margin-bottom: 8px;">
+                                <h3 id="prayer-city-display" style="font-size: 1.3rem; margin: 0; background: var(--orange-black-grad); background-size: 400% 400%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: rainbow-flow 2.5s linear infinite; font-weight: 900;">Lahore</h3>
+                            </div>
+                            <div class="prayer-list" id="prayerTimes" style="display: flex; flex-direction: column; gap: 8px;">
+                                <div class="p-row"><span>Fajr</span><span id="fajr">--:--</span></div>
+                                <div class="p-row"><span>Dhuhr</span><span id="dhuhr">--:--</span></div>
+                                <div class="p-row"><span>Asr</span><span id="asr">--:--</span></div>
+                                <div class="p-row"><span>Maghrib</span><span id="maghrib">--:--</span></div>
+                                <div class="p-row"><span>Isha</span><span id="isha">--:--</span></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- AI Voice Studio (COMPACT & SYNCED) -->
+                    <div class="card gadget-card" style="min-height: 480px; display: flex; flex-direction: column; background: rgba(20,20,20,0.95);">
+                        <div class="icon">🎙️</div>
+                        <label>AI Voice Studio <span class="urdu-inline">(صوتی ٹرانسکرپٹ)</span></label>
+                        
+                        <div style="position: relative; flex-grow: 1; margin: 15px 0;">
+                            <textarea id="urduTextResult" placeholder="Speak Urdu here..." style="width: 100%; height: 100%; min-height: 200px; border-radius: 20px; padding: 15px; font-family: 'Noto Nastaliq Urdu', serif; direction: rtl; border: 1px solid rgba(255,193,7,0.2); background: rgba(255,255,255,0.05); color: #fff; font-size: 1.1rem; resize: none; outline: none; transition: 0.3s; line-height: 1.8;"></textarea>
+                            <div id="voiceWave" style="position: absolute; bottom: 15px; left: 15px; display: none; gap: 4px; align-items: flex-end; height: 25px;">
+                                <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+                            </div>
+                        </div>
+    
+                        <div id="voiceStatus" style="font-size: 0.65rem; font-weight: 800; color: var(--accent-gold); text-align: center; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase;">Ready to Record</div>
+    
+                        <div style="display: flex; gap: 10px; width: 100%;">
+                            <button id="voiceBtn" onclick="startVoiceRecognition()" class="flux-box-anim" style="flex: 1.5; height: 50px; font-weight: 800; border-radius: 10px; font-size: 0.85rem;">START RECORDING</button>
+                            <button onclick="copyUrduText()" class="flux-box-anim" style="flex: 1; height: 50px; font-weight: 700; border-radius: 10px; font-size: 0.85rem;">COPY</button>
+                            <button onclick="document.getElementById('urduTextResult').value=''; finalTranscript='';" class="flux-box-anim" style="flex: 1; height: 50px; font-weight: 700; border-radius: 10px; font-size: 0.85rem;">CLEAR</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Advanced Editor Section (RESTORED) -->
+            <section id="photo-editor" class="section">
+                <h2 class="section-title">AI Photo Editor <span class="urdu-inline">(ایڈیٹر)</span></h2>
+                <div class="card editor-card" style="max-width: 900px; margin: 0 auto;">
+                    <div id="editorPlaceholder" style="text-align: center; padding: 50px; border: 2px dashed var(--accent-gold); border-radius: 20px; width: 100%; cursor: pointer;" onclick="document.getElementById('editorInput').click()">
+                        <div style="font-size: 3.5rem; margin-bottom: 15px;">🖼️</div>
+                        <p style="font-weight: 600; color: var(--text-brown);">Upload a photo to start editing with premium filters</p>
+                        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Supports JPG, PNG, WEBP</p>
+                    </div>
+                    <canvas id="editorCanvas" style="display: none;"></canvas>
+                    
+                    <div class="editor-controls" style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 25px;">
+                        <div class="control-group">
+                            <div style="display: flex; justify-content: space-between;"><label>Brightness</label></div>
+                            <input type="range" id="bright" min="0" max="200" value="100">
+                        </div>
+                        <div class="control-group">
+                            <label>Contrast</label>
+                            <input type="range" id="contrast" min="0" max="200" value="100">
+                        </div>
+                        <div class="control-group">
+                            <label>Saturation</label>
+                            <input type="range" id="saturate" min="0" max="200" value="100">
+                        </div>
+                        <div class="control-group">
+                            <label>Hue Rotate</label>
+                            <input type="range" id="hue" min="0" max="360" value="0">
+                        </div>
+                        <div class="control-group">
+                            <label>Grayscale</label>
+                            <input type="range" id="grayscale" min="0" max="100" value="0">
+                        </div>
+                        <div class="control-group">
+                            <label>Sepia</label>
+                            <input type="range" id="sepia" min="0" max="100" value="0">
+                        </div>
+                        <div class="control-group">
+                            <label>Blur</label>
+                            <input type="range" id="blur" min="0" max="20" value="0">
+                        </div>
+                    </div>
+    
+                    <div style="display: flex; gap: 15px; width: 100%; margin-top: 30px;">
+                        <input type="file" id="editorInput" accept="image/*" hidden>
+                        <button onclick="document.getElementById('editorInput').click()" class="flux-box-anim" style="flex: 1; height: 50px;">UPLOAD PHOTO</button>
+                        <button onclick="downloadEdit()" style="flex: 1; height: 50px; background: var(--accent-gold);">DOWNLOAD EDITED</button>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Productivity Hub -->
+            <section id="productivity-hub" class="section">
+                <h2 class="section-title">Productivity Hub <span class="urdu-inline">(پیداواری ٹولز)</span></h2>
+                <div class="dashboard-grid" style="margin-top: 20px;">
+                    
+    
+                    <!-- 2. Expense Tracker -->
+                    <div class="card" style="display: flex; flex-direction: column; padding: 25px; align-items: stretch; width: 100%;">
+                        <div style="text-align: center; width: 100%; margin-bottom: 15px;">
+                            <div class="icon" style="font-size: 2.5rem; margin-bottom: 5px;">💸</div>
+                            <h3 style="color: var(--text-brown); font-size: 1.3rem;">Expense Tracker</h3>
+                            <div style="font-size: 0.8rem; opacity: 0.7; display: flex; justify-content: space-between; align-items: center; margin-top: 10px; background: rgba(0,0,0,0.05); padding: 8px 12px; border-radius: 8px; flex-wrap: wrap; gap: 5px;">
+                                <span>Total Spent:</span>
+                                <span id="expense-total" style="font-family: 'Roboto Mono', monospace; color: #e53935; font-weight: 800; font-size: 1rem;">Rs 0</span>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 8px; margin-bottom: 15px; flex-wrap: wrap;">
+                            <input type="text" id="exp-desc" placeholder="E.g. Coffee" style="flex: 1; min-width: 120px; padding: 10px; border-radius: 8px; border: 1px solid rgba(166,124,82,0.3); outline: none; background: rgba(255,255,255,0.5);">
+                            <input type="number" id="exp-amount" placeholder="Rs" style="flex: 0.5; min-width: 60px; padding: 10px; border-radius: 8px; border: 1px solid rgba(166,124,82,0.3); outline: none; background: rgba(255,255,255,0.5);">
+                            <button onclick="addExpense()" style="width: auto; flex-shrink: 0; padding: 0 15px; height: 40px; background: var(--accent-gold); border-radius: 8px; border: none; font-size: 1.5rem; color: #fff;">+</button>
+                        </div>
+                        
+                        <div id="expense-list" style="flex: 1; overflow-y: auto; max-height: 150px; display: flex; flex-direction: column; gap: 8px; padding-right: 5px; scrollbar-width: thin;">
+                            <!-- JS fills this -->
+                        </div>
+                    </div>
+    
+                    <!-- 3. Digital Journal -->
+                    <div class="card" style="display: flex; flex-direction: column; padding: 25px; min-height: 380px; align-items: stretch;">
+                        <div style="text-align: center; width: 100%; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+                            <h3 style="color: var(--text-brown); font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">📓 My Journal</h3>
+                            <div class="mood-selector" id="mood-selector" style="display: flex; gap: 5px; background: rgba(0,0,0,0.05); padding: 5px; border-radius: 20px;">
+                                <span class="mood-btn active" data-mood="😊" onclick="setMood('😊')" style="cursor: pointer; opacity: 1; transition: 0.2s;">😊</span>
+                                <span class="mood-btn" data-mood="😐" onclick="setMood('😐')" style="cursor: pointer; opacity: 0.4; transition: 0.2s;">😐</span>
+                                <span class="mood-btn" data-mood="😠" onclick="setMood('😠')" style="cursor: pointer; opacity: 0.4; transition: 0.2s;">😠</span>
+                            </div>
+                        </div>
+                        
+                        <div id="journal-list" style="flex: 1; overflow-y: auto; max-height: 200px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; scrollbar-width: thin; padding-right: 5px;">
+                            <!-- JS fills this -->
+                        </div>
+                        
+                        <div style="display: flex; gap: 8px; align-items: stretch; margin-bottom: 10px;">
+                            <textarea id="journal-input" placeholder="نئی نوٹ یہاں درج کریں... (Shift+Enter for new line)" onkeypress="handleJournalEnter(event)" class="urdu-text" style="flex: 1; min-height: 80px; resize: vertical; padding: 15px; border: 1px solid rgba(166,124,82,0.2); border-radius: 12px; background: rgba(255,255,255,0.7); outline: none; color: var(--text-brown); line-height: 2.2; font-size: 1.2rem;"></textarea>
+                            <button onclick="addJournalLine()" style="background: var(--accent-gold); border: none; border-radius: 8px; width: 60px; color: #fff; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center;">+</button>
+                        </div>
+    
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="journal-status" style="font-size: 0.75rem; color: #4CAF50; opacity: 0; transition: opacity 0.3s; font-weight: 600;">Saved ✓</span>
+                            <button onclick="clearJournal()" style="width: auto; height: 35px; padding: 0 15px; font-size: 0.8rem; background: transparent; color: #f44336; border: 1px solid rgba(244,67,54,0.3);">CLEAR ALL</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- World Live Hub -->
+            <section id="pak-live-hub" class="section">
+                <h2 class="section-title">World Live Hub <span class="urdu-inline">(گلوبل اپڈیٹس)</span></h2>
+                <div class="card" style="max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; padding: 30px; background: var(--card-bg); border-radius: 30px; border: var(--glass-border); box-shadow: var(--shadow);">
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 25px; width: 100%;">
+                        <!-- Left: Global Market -->
+                        <div style="flex: 1.6; min-width: 340px; background: rgba(245, 238, 220, 0.3); border-radius: 20px; padding: 25px; border: 1px solid rgba(166, 124, 82, 0.1); position: relative;">
+                            <div style="position: absolute; top: 15px; right: 20px; background: var(--orange-black-grad); background-size: 400% 400%; animation: rainbow-flow 2.5s linear infinite; color: #fff; font-size: 0.6rem; padding: 4px 10px; border-radius: 6px; font-weight: 900; letter-spacing: 1px;">LIVE SYNC</div>
+                            <h3 style="color: var(--text-brown); font-size: 1.1rem; margin-bottom: 5px; font-weight: 800; display: flex; align-items: center; gap: 10px;">📊 GLOBAL MARKET DATA</h3>
+                            
+                            <div id="currency-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 20px; color: var(--text-brown);">
+                                <!-- Dynamically Loaded -->
+                                <div style="grid-column: 1 / -1; text-align: center; opacity: 0.5; padding: 30px;">Refining Rates...</div>
+                            </div>
+                        </div>
+    
+                        <!-- Right: Urdu Breaking News Feed -->
+                        <div style="flex: 1; min-width: 280px; background: rgba(45, 27, 24, 0.05); border-radius: 20px; padding: 25px; display: flex; flex-direction: column; border: 1px solid rgba(166, 124, 82, 0.15);">
+                            <h3 style="color: var(--text-brown); font-size: 1.1rem; margin-bottom: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px;">🌍 دنیا بھر کی خبریں</h3>
+                            <div id="news-ticker" style="flex-grow: 1; overflow-y: auto; max-height: 300px; padding-right: 5px; font-family: 'Noto Nastaliq Urdu', serif; direction: rtl; color: var(--text-brown);">
+                                <div style="text-align: center; opacity: 0.6; font-size: 0.9rem; padding: 40px;">خبریں لوڈ ہو رہی ہیں...</div>
+                            </div>
+                            <button onclick="refreshLiveHub()" class="flux-box-anim" style="margin-top: 20px; height: 45px; font-size: 0.85rem; border-radius: 12px; width: 100%; background: var(--accent-gold); color: #fff; font-weight: 800; border: none;">تازہ ترین اپڈیٹ</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <section id="dashboard" class="section">
+                <h2 class="section-title">Pakistan Services <span class="urdu-inline">(پاکستانی سروسز)</span></h2>
+                <div class="dashboard-grid">
+                     <!-- Government -->
+                     <div class="dashboard-category">
+                        <h3>Govt Portals <span class="urdu-inline"> (حکومتی پورٹلز)</span></h3>
+                        <div class="links">
+                            <a href="https://www.fbr.gov.pk" target="_blank">FBR (Taxation)</a>
+                            <a href="https://id.nadra.gov.pk" target="_blank">NADRA (ID Cards)</a>
+                            <a href="https://passport.gov.pk" target="_blank">Passport Renewal</a>
+                        </div>
+                     </div>
+                     <!-- Airlines -->
+                     <div class="dashboard-category">
+                        <h3>Airlines <span class="urdu-inline"> (ایئر لائنز)</span></h3>
+                        <div class="links">
+                            <a href="https://www.piac.com.pk" target="_blank">PIA</a>
+                            <a href="https://www.airblue.com" target="_blank">AirBlue</a>
+                            <a href="https://www.sereneair.com" target="_blank">Serene Air</a>
+                        </div>
+                     </div>
+                </div>
+            </section>
+    
+            </section>
+        </main>
+        <!-- [ORIGINAL BACKUP CONTENT ENDS HERE] -->
+    </div>
+
+    <!-- SHARED GLOBAL FOOTER (OUTSIDE ALL TABS) -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-address">
+                <span class="urdu-text">بلاک نمبر 2 ہاؤس نمبر 82/9 کریم پارک روای روڈ لاہور نزد گول باغ جامعہ مسجد گلزار مدینہ</span>
+                <span class="en-text">Block No. 2, House No. 82/9 Karim Park Ravi Road Lahore, Near Goal Bagh Jamia Masjid Gulzare Madina</span>
+            </div>
+            <div class="footer-contact" style="margin-top: 5px; font-weight: 700; color: #fff !important;">
+                <span style="font-size: 0.85rem; color: #fff !important;">Contact Person: Mr. Asim</span> | 
+                <span style="font-size: 0.85rem; color: #fff !important;">Phone/WhatsApp: +92 323 8893382</span>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 ASIM PHOTO STUDIO | PAKPORTAL - Designed by Amir Shahzad
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <!-- GLOBAL WHATSAPP BUTTON -->
+    <a href="javascript:void(0)" onclick="openWhatsApp()" class="s-whatsapp-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        <span class="s-wa-tooltip">Book Now / رابطہ کریں</span>
+    </a>
+
+    <button id="backToTop" title="Go to top">↑</button>
+    <div id="word-pdf-render"></div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="s-lightbox" onclick="closeLightbox()">
+        <span class="s-close">&times;</span>
+        <img class="s-lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js?v=1.3"></script>
+</body>
+</html>
