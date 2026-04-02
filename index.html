@@ -264,40 +264,38 @@
 
     <!-- TAB: PAKPORTAL (THE ORIGINAL CONTENT) -->
     <div id="tab-portal" class="s-tab-content" style="display:none;">
-        <header class="p-header">
-            <nav class="p-nav">
+        <!-- [ORIGINAL BACKUP CONTENT BEGINS HERE] -->
+        <header>
+            <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0 4%;">
                 <!-- Left Side: Logo + Tiny Nav -->
-                <div class="p-nav-left">
+                <div style="display: flex; align-items: center; gap: 30px;">
                     <div class="logo">PakPortal</div>
-                    <ul class="p-nav-links">
-                        <li><a href="#converters">Converters</a></li>
-                        <li><a href="#dashboard">Services</a></li>
+                    <ul style="display: flex; gap: 15px; margin: 0; padding: 0; list-style: none;">
+                        <li><a href="#converters" style="font-size: 0.85rem; opacity: 0.9;">Converters</a></li>
+                        <li><a href="#dashboard" style="font-size: 0.85rem; opacity: 0.9;">Services</a></li>
+                        <li><a href="javascript:void(0)" onclick="showTab('home')" style="font-size: 0.85rem; background: var(--accent-gold); color: #fff; padding: 4px 10px; border-radius: 5px; font-weight: 800;">← Back to Studio</a></li>
                     </ul>
                 </div>
                 
-                <!-- Back Button Relocated for Consistency -->
-                <div class="p-back-container">
-                    <a href="javascript:void(0)" onclick="showTab('home')" class="p-back-btn">← Back to Studio</a>
-                </div>
-
                 <!-- Right Side: Embossed Gadgets -->
-                <div class="p-gadgets">
+                <div style="display: flex; align-items: center; gap: 12px;">
                     <!-- Integrated Clock -->
-                    <div class="header-gadget-box flux-box-anim p-gadget-clock">
-                        <div class="st-clock monospaced-clock">00:00:00 AM</div>
-                        <div class="st-date">--</div>
+                    <div class="header-gadget-box flux-box-anim header-small-gadget" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;">
+                        <div class="st-clock monospaced-clock" style="font-size: 0.95rem; font-weight: 800; color: #fff; margin: 0; line-height: 1.1;">00:00:00 AM</div>
+                        <div class="st-date" style="font-size: 0.7rem; font-weight: 700; color: #fff; text-transform: uppercase; margin: 0; opacity: 0.9;">--</div>
                     </div>
     
                     <!-- Integrated Weather -->
-                    <div class="p-weather-wrapper">
-                        <div class="header-gadget-box flux-box-anim p-gadget-weather" onclick="toggleWeatherSearch()">
-                            <div class="p-weather-main">
-                                <span class="st-icon">🌦️</span>
-                                <span class="st-temp weather-temp-bold">--°C</span>
+                    <div style="position: relative;">
+                        <div class="header-gadget-box flux-box-anim header-small-gadget" style="cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;" onclick="toggleWeatherSearch()">
+                            <div style="display: flex; align-items: center; gap: 5px; margin: 0;">
+                                <span class="st-icon" style="font-size: 1.1rem; margin: 0;">🌦️</span>
+                                <span class="st-temp weather-temp-bold" style="font-size: 0.95rem; color: #fff; font-weight: 900; margin: 0;">--°C</span>
                             </div>
-                            <span class="st-city">Lahore</span>
+                            <span class="st-city" style="font-size: 0.7rem; font-weight: 700; opacity: 0.9; text-transform: uppercase; color: #fff; margin: 0;">Lahore</span>
                         </div>
-                        <div id="weather-search-dropdown" class="search-dropdown">
+                        <!-- Global Search Dropdown -->
+                        <div id="weather-search-dropdown" class="search-dropdown" style="display: none;">
                             <input type="text" id="city-autocomplete" placeholder="Global City Search..." autocomplete="off">
                             <div id="search-results"></div>
                         </div>

@@ -47,15 +47,8 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box !important;
+    box-sizing: border-box;
     scroll-behavior: smooth;
-}
-
-html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    position: relative;
 }
 
 body {
@@ -66,6 +59,7 @@ body {
     color: var(--text-brown);
     font-family: 'Outfit', 'Poppins', 'Jameel Noori Nastaleeq', 'Segoe UI', Arial, sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 /* Force consistent premium font and UPPERCASE for all English headers, buttons, and labels */
 h1, h2, h3, .en-brand, .s-nav-item, .s-section-title, .s-service-card h3, .s-rev-name, .s-cta-btn, .logo, .glow-text, .s-main-title, .en-text, .footer-contact span, .st-city, .st-date, label, .p-row span {
@@ -1792,143 +1786,4 @@ footer .copyright {
     .s-main-title {
         font-size: 1.8rem !important;
     }
-}
-
-/* === PakPortal Specific Styles & Fixes === */
-
-.p-header {
-    width: 100%;
-    background: transparent;
-    padding: 10px 0;
-    z-index: 100;
-}
-
-.p-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4%;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.p-nav-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.p-nav-links {
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.p-nav-links a {
-    text-decoration: none;
-    color: var(--text-brown);
-    font-size: 0.85rem;
-    font-weight: 700;
-    opacity: 0.9;
-    transition: var(--transition);
-}
-
-.p-nav-links a:hover {
-    color: var(--accent-gold);
-    opacity: 1;
-}
-
-/* RELOCATED BACK BUTTON STYLE */
-.p-back-btn {
-    text-decoration: none;
-    font-size: 0.85rem;
-    background: var(--accent-gold);
-    color: #fff !important;
-    padding: 6px 15px;
-    border-radius: 8px;
-    font-weight: 800;
-    display: inline-block;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: var(--transition);
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.p-back-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    filter: brightness(1.1);
-}
-
-.p-gadget-clock, .p-gadget-weather {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    padding: 5px 12px !important;
-    min-width: 100px;
-}
-
-.p-weather-wrapper {
-    position: relative;
-}
-
-.p-weather-main {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* TABLET / MOBILE PORTAL ADJUSTMENTS */
-@media (max-width: 900px) {
-    .p-nav {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px 4%;
-    }
-    
-    .p-nav-left {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .p-nav-links {
-        justify-content: center;
-    }
-
-    .p-back-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin: 10px 0;
-    }
-
-    .p-gadgets {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .p-nav-links {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .grid {
-        grid-template-columns: 1fr !important;
-        padding: 0 5% !important;
-    }
-}
-
-/* Ensure ALL portal Urdu text is correctly font-classed */
-#tab-portal .urdu-text, 
-#tab-portal .urdu-inline {
-    font-family: 'Jameel Noori Nastaleeq', serif !important;
-    line-height: 2 !important;
 }
