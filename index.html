@@ -266,19 +266,19 @@
     <div id="tab-portal" class="s-tab-content" style="display:none;">
         <!-- [ORIGINAL BACKUP CONTENT BEGINS HERE] -->
         <header>
-            <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0 4%;">
+            <nav class="portal-header-nav">
                 <!-- Left Side: Logo + Tiny Nav -->
-                <div style="display: flex; align-items: center; gap: 30px;">
+                <div class="portal-nav-left">
                     <div class="logo">PakPortal</div>
-                    <ul style="display: flex; gap: 15px; margin: 0; padding: 0; list-style: none;">
-                        <li><a href="#converters" style="font-size: 0.85rem; opacity: 0.9;">Converters</a></li>
-                        <li><a href="#dashboard" style="font-size: 0.85rem; opacity: 0.9;">Services</a></li>
-                        <li><a href="javascript:void(0)" onclick="showTab('home')" style="font-size: 0.85rem; background: var(--accent-gold); color: #fff; padding: 4px 10px; border-radius: 5px; font-weight: 800;">← Back to Studio</a></li>
+                    <ul class="portal-nav-links">
+                        <li><a href="#converters">Converters</a></li>
+                        <li><a href="#dashboard">Services</a></li>
+                        <li><a href="javascript:void(0)" onclick="showTab('home')" class="portal-back-btn">← Back to Studio</a></li>
                     </ul>
                 </div>
                 
                 <!-- Right Side: Embossed Gadgets -->
-                <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="portal-nav-right">
                     <!-- Integrated Clock -->
                     <div class="header-gadget-box flux-box-anim header-small-gadget" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;">
                         <div class="st-clock monospaced-clock" style="font-size: 0.95rem; font-weight: 800; color: #fff; margin: 0; line-height: 1.1;">00:00:00 AM</div>
@@ -313,7 +313,7 @@
             </section>
     
             <section id="converters" class="section">
-                <h2 class="section-title">File Converters <span class="urdu-inline">(کنورٹرز)</span></h2>
+                <h2 class="section-title">File Converters <span class="urdu-text">(کنورٹرز)</span></h2>
                 <div class="grid">
                     <!-- 1. JPG to PDF -->
                     <div class="card converter-card">
@@ -341,18 +341,6 @@
                         <div id="wordStatus" class="status"></div>
                     </div>
     
-                    <!-- 4. PNG to JPG -->
-                    <div class="card converter-card">
-                        <div class="icon">🖼️</div>
-                        <label>PNG to JPG</label>
-                        <div class="settings-panel">
-                            <div class="settings-row"><span>Format</span><span>High Quality</span></div>
-                            <p style="font-size: 0.7rem; opacity: 0.7;">Convert PNG to Optimized JPG</p>
-                        </div>
-                        <input type="file" id="pngInput" accept="image/png" hidden>
-                        <button onclick="document.getElementById('pngInput').click()">Upload PNG</button>
-                        <div id="pngStatus" class="status"></div>
-                    </div>
     
                     <!-- 5. Photo Resize -->
                     <div class="card converter-card">
@@ -467,7 +455,7 @@
     
             <!-- Smart Utilities / Premium Gadgets Section (NEW) -->
             <section id="smart-utilities" class="section">
-                <h2 class="section-title">Smart Utilities <span class="urdu-inline">(سمارٹ یوٹیلیٹیز)</span></h2>
+                <h2 class="section-title">Smart Utilities <span class="urdu-text">(سمارٹ یوٹیلیٹیز)</span></h2>
                 <div class="gadget-grid">
                     <!-- 2. Global Prayer Times -->
                     <div class="card gadget-card" style="display: flex; flex-direction: column; overflow: hidden; width: 100%;">
@@ -524,7 +512,7 @@
     
             <!-- Advanced Editor Section (RESTORED) -->
             <section id="photo-editor" class="section">
-                <h2 class="section-title">AI Photo Editor <span class="urdu-inline">(ایڈیٹر)</span></h2>
+                <h2 class="section-title">AI Photo Editor <span class="urdu-text">(ایڈیٹر)</span></h2>
                 <div class="card editor-card" style="max-width: 900px; margin: 0 auto;">
                     <div id="editorPlaceholder" style="text-align: center; padding: 50px; border: 2px dashed var(--accent-gold); border-radius: 20px; width: 100%; cursor: pointer;" onclick="document.getElementById('editorInput').click()">
                         <div style="font-size: 3.5rem; margin-bottom: 15px;">🖼️</div>
@@ -574,7 +562,7 @@
     
             <!-- Productivity Hub -->
             <section id="productivity-hub" class="section">
-                <h2 class="section-title">Productivity Hub <span class="urdu-inline">(پیداواری ٹولز)</span></h2>
+                <h2 class="section-title">Productivity Hub <span class="urdu-text">(پیداواری ٹولز)</span></h2>
                 <div class="dashboard-grid" style="margin-top: 20px;">
                     
     
@@ -630,7 +618,7 @@
     
             <!-- World Live Hub -->
             <section id="pak-live-hub" class="section">
-                <h2 class="section-title">World Live Hub <span class="urdu-inline">(گلوبل اپڈیٹس)</span></h2>
+                <h2 class="section-title">World Live Hub <span class="urdu-text">(گلوبل اپڈیٹس)</span></h2>
                 <div class="card" style="max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; padding: 30px; background: var(--card-bg); border-radius: 30px; border: var(--glass-border); box-shadow: var(--shadow);">
                     
                     <div style="display: flex; flex-wrap: wrap; gap: 25px; width: 100%;">
@@ -658,7 +646,7 @@
             </section>
     
             <section id="dashboard" class="section">
-                <h2 class="section-title">Pakistan Services <span class="urdu-inline">(پاکستانی سروسز)</span></h2>
+                <h2 class="section-title">Pakistan Services <span class="urdu-text">(پاکستانی سروسز)</span></h2>
                 <div class="dashboard-grid">
                      <!-- Government -->
                      <div class="dashboard-category">

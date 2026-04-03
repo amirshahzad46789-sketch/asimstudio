@@ -69,10 +69,12 @@ h1, h2, h3, .en-brand, .s-nav-item, .s-section-title, .s-service-card h3, .s-rev
 }
 
 /* Force Jameel Noori for ONLY Urdu-specific elements */
-.urdu-text, .urdu-inline, .s-urdu-title, .s-brand .urdu-text, .footer-address .urdu-text, h1 .urdu-inline, h2 .urdu-inline, h3 .urdu-inline {
+.urdu-text, .urdu-inline, .s-urdu-title, .s-brand .urdu-text, .footer-address .urdu-text, 
+h1 .urdu-inline, h2 .urdu-inline, h3 .urdu-inline, .section-title .urdu-inline {
     font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif !important;
     text-transform: none !important; /* Prevent English uppercase from breaking Urdu font rendering */
     direction: rtl;
+    display: inline-block; /* Ensure better rendering */
 }
 
 /* Background Animation */
@@ -290,7 +292,7 @@ nav a:hover::after {
 }
 
 .section {
-    padding: 30px 10%; /* Tight sections */
+    padding: 30px 6%; /* Reduced from 10% for better laptop fit */
 }
 
 .section-header {
@@ -1126,13 +1128,13 @@ footer .copyright {
     100% { background-position: 0% 50%; }
 }
 .s-nav-container {
-    max-width: 1400px;
-    width: 98%;
+    max-width: 1300px; /* Reduced from 1400px to avoid tight fit on laptops */
+    width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 .s-brand {
     flex-shrink: 0;
@@ -1750,7 +1752,15 @@ footer .copyright {
     }
 
     .header-gadgets {
-        display: none; /* Hide gadgets on small mobile to save space */
+        display: flex !important; /* Restore gadgets on mobile */
+        gap: 5px !important;
+        transform: scale(0.85);
+        transform-origin: right center;
+    }
+    
+    .header-small-gadget {
+        padding: 4px 8px !important;
+        min-width: auto !important;
     }
 }
 
@@ -1778,12 +1788,88 @@ footer .copyright {
     }
 }
 
-/* Small Phones (480px and below) */
-@media (max-width: 480px) {
-    .en-brand { font-size: 1rem !important; }
-    .s-brand .urdu-text { font-size: 1rem !important; }
-    
-    .s-main-title {
-        font-size: 1.8rem !important;
+/* === LAPTOP & LARGE TABLET OPTIMIZATION (1024px - 1440px) === */
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .s-main-title { font-size: 3.5rem !important; }
+    .s-urdu-title { font-size: 2.8rem !important; }
+    .s-hero-desc { font-size: 1.3rem !important; }
+    .s-nav-item { padding: 0 12px !important; min-width: 80px !important; font-size: 0.75rem !important; }
+    .s-section { padding: 40px 40px !important; }
+    .section { padding: 30px 5% !important; }
+    .grid, .portfolio-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* PakPortal Header Refactored Classes */
+.portal-header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    min-height: 80px;
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
+    gap: 10px;
+}
+
+.portal-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.portal-nav-links {
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+}
+
+.portal-nav-links a {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.portal-back-btn {
+    font-size: 0.75rem !important;
+    background: var(--accent-gold);
+    color: #fff !important;
+    padding: 6px 10px !important;
+    border-radius: 8px;
+    font-weight: 800;
+    text-decoration: none;
+    height: auto !important;
+    width: auto !important;
+    display: inline-flex !important;
+    margin: 0 !important;
+    white-space: nowrap;
+}
+
+.portal-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (max-width: 600px) {
+    .portal-header-nav {
+        flex-direction: column;
+        padding: 15px 5%;
+        height: auto;
+        text-align: center;
+    }
+    .portal-nav-left, .portal-nav-right {
+        justify-content: center;
+        width: 100%;
+    }
+    .s-brand .urdu-text {
+        font-size: 0.9rem !important;
+    }
+    .s-hero-desc {
+        font-size: 1.2rem !important;
+        line-height: 1.8 !important;
     }
 }
