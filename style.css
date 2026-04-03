@@ -20,6 +20,7 @@
 @font-face {
     font-family: 'Jameel Noori Nastaleeq';
     src: url('https://cdn.jsdelivr.net/gh/nafeespp/urdu-fonts/fonts/JameelNooriNastaleeq.ttf');
+    font-display: swap;
 }
 
 @keyframes glow-pulse {
@@ -70,7 +71,7 @@ h1, h2, h3, .en-brand, .s-nav-item, .s-section-title, .s-service-card h3, .s-rev
 
 /* Force Jameel Noori for ONLY Urdu-specific elements */
 .urdu-text, .urdu-inline, .s-urdu-title, .s-brand .urdu-text, .footer-address .urdu-text, 
-h1 .urdu-inline, h2 .urdu-inline, h3 .urdu-inline, .section-title .urdu-inline {
+h1 .urdu-inline, h2 .urdu-inline, h3 .urdu-inline, .section-title .urdu-inline, .s-hero-desc.urdu-text {
     font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif !important;
     text-transform: none !important; /* Prevent English uppercase from breaking Urdu font rendering */
     direction: rtl;
@@ -1868,8 +1869,10 @@ footer .copyright {
     .s-brand .urdu-text {
         font-size: 0.9rem !important;
     }
-    .s-hero-desc {
-        font-size: 1.2rem !important;
-        line-height: 1.8 !important;
+    .s-hero-desc.urdu-text {
+        font-size: 1.25rem !important;
+        line-height: 2 !important;
+        font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif !important;
+        margin-top: 10px !important;
     }
 }
