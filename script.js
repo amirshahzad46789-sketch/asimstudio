@@ -288,13 +288,23 @@ function loadYTVideo() {
     cinema.style.display = "block";
     cinema.scrollIntoView({behavior: "smooth"});
     setStatus('ytStatus', '✅ Downloader Ready!');
+
+    // Push state for cinema overlay
+    history.pushState({ overlay: 'cinema' }, "", "");
 }
 
-function closeCinema() {
+
+function closeCinema(isPopState = false) {
     document.getElementById('cinema').style.display = "none";
     document.getElementById('ytPlayerContainer').innerHTML = "";
     setStatus('ytStatus', '');
+    
+    // If closed manually (not via back button), pop the state
+    if (!isPopState && history.state && history.state.overlay === 'cinema') {
+        history.back();
+    }
 }
+
 
 // --- Digital Gadgets Logic (Header Phase 4) ---
 
@@ -1249,12 +1259,20 @@ if (document.readyState === 'loading') {
 /* --- [ASIM PHOTO STUDIO - STUDIO LOGIC JS] --- */
 
 // 1. Tab Switching Logic
-function showTab(tabId) {
+// 1. Tab Switching Logic with Back Button Support
+function showTab(tabId, isPopState = false) {
     const tabs = document.querySelectorAll('.s-tab-content');
+    let currentActive = null;
     tabs.forEach(tab => {
+        if (tab.classList.contains('active')) {
+            currentActive = tab.id.replace('tab-', '');
+        }
         tab.style.display = 'none';
         tab.classList.remove('active');
     });
+
+    // Don't do anything if we are already on this tab and it's not a popstate
+    if (currentActive === tabId && !isPopState) return;
 
     const servicesCont = document.getElementById('services-section-container');
     const reviewsCont = document.getElementById('reviews-section-container');
@@ -1271,8 +1289,6 @@ function showTab(tabId) {
         if (servicesCont) tabServices.appendChild(servicesCont);
     } else if (tabId === 'reviews') {
         if (reviewsCont) tabReviews.appendChild(reviewsCont);
-    } else if (tabId === 'gallery') {
-        // Gallery tab is standalone and handles its own grid
     }
 
     const activeTab = document.getElementById('tab-' + tabId);
@@ -1289,6 +1305,11 @@ function showTab(tabId) {
     const activeNav = document.getElementById('nav-' + tabId);
     if (activeNav) {
         activeNav.classList.add('active');
+    }
+
+    // Push new state TO HISTORY (only if not triggered by back button)
+    if (!isPopState) {
+        history.pushState({ tabId: tabId }, "", "#" + tabId);
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1308,6 +1329,7 @@ function showTab(tabId) {
     
     loadReviews();
 }
+
 
 // 2. WhatsApp Integration
 function openWhatsApp() {
@@ -1529,6 +1551,7 @@ function initHeroSlider() {
 }
 
 // 6. Lightbox Logic
+// 6. Lightbox Logic with Back Button Support
 function openLightbox(src) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -1536,16 +1559,25 @@ function openLightbox(src) {
         lightboxImg.src = src;
         lightbox.style.display = 'block';
         document.body.style.overflow = 'hidden'; // Disable scroll
+        
+        // Push state for lightbox
+        history.pushState({ overlay: 'lightbox' }, "", "");
     }
 }
 
-function closeLightbox() {
+function closeLightbox(isPopState = false) {
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto'; // Enable scroll
+        
+        // If closed manually (not via back button), pop the state
+        if (!isPopState && history.state && history.state.overlay === 'lightbox') {
+            history.back();
+        }
     }
 }
+
 
 // 7. Special Seamless Loop for Work Slider
 function setupWorkSlider() {
@@ -1579,5 +1611,38 @@ document.addEventListener('DOMContentLoaded', () => {
     loadReviews();
     initHeroSlider(); // NEW: Start Slider
     setupWorkSlider(); // NEW: Setup Infinite Work Slider
-    showTab('home');
+    showTab('home', true); // Initial default
+
+    // HANDLE INITIAL HASH LOAD
+    const hash = window.location.hash.replace('#', '');
+    const validTabs = ['home', 'services', 'reviews', 'gallery', 'portal'];
+    if (hash && validTabs.includes(hash)) {
+        setTimeout(() => showTab(hash, true), 100);
+    }
+
+    // --- GLOBAL BACK BUTTON / POPSTATE HANDLER ---
+    window.addEventListener('popstate', (event) => {
+        // 1. Check if Lightbox is open and should be closed
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox && lightbox.style.display === 'block') {
+            closeLightbox(true);
+            return;
+        }
+
+        // 2. Check if YouTube Cinema is open
+        const cinema = document.getElementById('cinema');
+        if (cinema && cinema.style.display === 'block') {
+            closeCinema(true);
+            return;
+        }
+
+        // 3. Handle Tab Switching
+        if (event.state && event.state.tabId) {
+            showTab(event.state.tabId, true);
+        } else {
+            // Default to home if no state
+            showTab('home', true);
+        }
+    });
 });
+
